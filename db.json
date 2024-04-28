@@ -1,0 +1,114 @@
+{
+  "user": [
+    {
+      "fullName": "ADMIN",
+      "username": "admin",
+      "password": "admin",
+      "designation": "1",
+      "dateOfJoining": "2024-04-01",
+      "id": "1gh5"
+    },
+    {
+      "fullName": "ankur hola",
+      "username": "ankur",
+      "password": "ankur",
+      "designation": "3",
+      "dateOfJoining": "2024-04-10",
+      "id": "5cb6"
+    },
+    {
+      "id": "51cb",
+      "username": "laxmi",
+      "fullName": "Lakshman",
+      "password": "laxmi123",
+      "designation": "2",
+      "dateOfJoining": "2024-04-05"
+    },
+    {
+      "fullName": "Champak",
+      "username": "chill",
+      "password": "pill",
+      "designation": "4",
+      "dateOfJoining": "2024-04-06",
+      "id": "f3ae"
+    },
+    {
+      "id": "3b59",
+      "username": "sahilkumar",
+      "fullName": "Sahil Kumar",
+      "password": "sahil",
+      "designation": "4",
+      "dateOfJoining": "2024-04-10"
+    },
+    {
+      "id": "ece4",
+      "username": "anshu",
+      "fullName": "Anshu Kumar",
+      "password": "anshu",
+      "designation": "4",
+      "dateOfJoining": "2024-04-20"
+    }
+  ],
+  "leave-applications": [
+    {
+      "id": "db3e",
+      "leaveType": "Paid Leave",
+      "fromDate": "2024-04-20",
+      "toDate": "2024-04-23",
+      "status": "rejected",
+      "userId": "3b59",
+      "designation": "4"
+    },
+    {
+      "id": "4647",
+      "leaveType": "Sick Leave",
+      "fromDate": "2024-04-20",
+      "toDate": "2024-04-26",
+      "status": "accepted",
+      "userId": "3b59",
+      "designation": "4"
+    },
+    {
+      "id": "7121",
+      "leaveType": "Sick Leave",
+      "fromDate": "2024-04-13",
+      "toDate": "2024-04-28",
+      "status": "accepted",
+      "userId": "3b59",
+      "designation": "4"
+    },
+    {
+      "id": "b7bd",
+      "leaveType": "Unpaid Leave",
+      "fromDate": "2024-04-12",
+      "toDate": "2024-04-14",
+      "status": "pending",
+      "userId": "3b59",
+      "designation": "4"
+    },
+    {
+      "id": "8051",
+      "leaveType": "Sick Leave",
+      "fromDate": "2024-04-20",
+      "toDate": "2024-04-27",
+      "status": "pending",
+      "userId": "3b59",
+      "designation": "4"
+    }
+  ],
+  "resign": [
+    {
+      "id": "3d6d",
+      "userId": "3b59",
+      "userDesignationLevel": "4",
+      "reason": "de degea na",
+      "fromDate": "2024-04-20",
+      "status": "approved",
+      "approvals": [
+        "5cb6",
+        "51cb"
+      ],
+      "approvalsRequired": 2
+    }
+  ]
+}
