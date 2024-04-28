@@ -5,6 +5,7 @@
       "username": "admin",
       "password": "admin",
       "designation": "1",
+      "designationName": "CEO",
       "dateOfJoining": "2024-04-01",
       "id": "1gh5"
     },
@@ -13,6 +14,8 @@
       "username": "ankur",
       "password": "ankur",
       "designation": "3",
+      "designationName": "M",
+
       "dateOfJoining": "2024-04-10",
       "id": "5cb6"
     },
@@ -22,6 +25,7 @@
       "fullName": "Lakshman",
       "password": "laxmi123",
       "designation": "2",
+      "designationName": "HR",
       "dateOfJoining": "2024-04-05"
     },
     {
@@ -29,6 +33,7 @@
       "username": "chill",
       "password": "pill",
       "designation": "4",
+      "designationName": "D",
       "dateOfJoining": "2024-04-06",
       "id": "f3ae"
     },
@@ -38,6 +43,7 @@
       "fullName": "Sahil Kumar",
       "password": "sahil",
       "designation": "4",
+      "designationName": "T",
       "dateOfJoining": "2024-04-10"
     },
     {
@@ -46,7 +52,26 @@
       "fullName": "Anshu Kumar",
       "password": "anshu",
       "designation": "4",
+      "designationName": "D",
       "dateOfJoining": "2024-04-20"
+    },
+    {
+      "id": "721f",
+      "username": "hari",
+      "fullName": "Hari Krishan",
+      "password": "hari123",
+      "designation": "3",
+      "designationName": "RM",
+      "dateOfJoining": "2024-04-14"
+    },
+    {
+      "id": "338f",
+      "username": "babu",
+      "fullName": "Babu Shona",
+      "password": "babu",
+      "designation": "2",
+      "designationName": "SM",
+      "dateOfJoining": "2024-04-13"
     }
   ],
   "leave-applications": [

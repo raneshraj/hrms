@@ -6,11 +6,9 @@ const ViewResign = () => {
   const [resignRequests, setResignRequests] = useState([]);
 
   useEffect(() => {
-    // Fetch the current user from local storage or another source
     const user = JSON.parse(localStorage.getItem("user"));
     setCurrentUser(user);
 
-    // Fetch all resignation requests
     fetch("http://localhost:3000/resign")
       .then((res) => res.json())
       .then((data) => {
@@ -23,15 +21,12 @@ const ViewResign = () => {
     const updatedRequest = { ...request };
 
     if (approve) {
-      // Add the current user's approval
       updatedRequest.approvals.push(currentUser.id);
 
-      // Check if all required approvals have been obtained
       if (updatedRequest.approvals.length >= updatedRequest.approvalsRequired) {
         updatedRequest.status = "approved";
       }
     } else {
-      // Reject the request
       updatedRequest.status = "rejected";
     }
 
@@ -44,7 +39,6 @@ const ViewResign = () => {
     })
       .then((res) => res.json())
       .then((updatedRequest) => {
-        // Update the local state with the new data
         setResignRequests(
           resignRequests.map((req) =>
             req.id === updatedRequest.id ? updatedRequest : req

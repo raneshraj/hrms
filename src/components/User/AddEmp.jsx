@@ -12,7 +12,8 @@ const AddEmp = ({ onSubmit }) => {
   const [password, setPassword] = useState("");
   const [designation, setDesignation] = useState("");
   const [dateOfJoining, setDateOfJoining] = useState("");
-  
+  const [designationName, setDesignationName] = useState("");
+
   useEffect(() => {
     const loggedInUser = JSON.parse(localStorage.getItem("user"));
     if (!loggedInUser || loggedInUser.username !== "admin") {
@@ -28,38 +29,59 @@ const AddEmp = ({ onSubmit }) => {
       setTimeout(() => navigate("/"), 1000); // Redirect to home page after 3 seconds
     }
   }, [navigate]);
-  
 
   const handleSubmit = (e) => {
-  
     let newEmployee = {
       username,
       fullName,
       password,
       designation,
+      designationName,
       dateOfJoining,
     };
- 
-    console.log(newEmployee)
-    fetch ("http://localhost:3000/user", {
+
+    console.log(newEmployee);
+    fetch("http://localhost:3000/user", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newEmployee),
-    }).then((res) => {
-      toast.success('Registered')
-    
-    }).catch((err) => {
-      console.log(err.message);
-      toast.error(err.message)  
     })
- 
+      .then((res) => {
+        toast.success("Registered");
+      })
+      .catch((err) => {
+        console.log(err.message);
+        toast.error(err.message);
+      });
+  };
+
+  const handleDesignationChange = (e) => {
+    const selectedDesignation = e.target.value;
+    setDesignation(selectedDesignation);
+
+    const designationNameMap = {
+      "2": "HR",
+      "2": "SM",
+      "3": "RM",
+      "3": "M",
+      "4": "D",
+      "4": "T",
+    };
+
+    setDesignationName(designationNameMap[selectedDesignation] || "");
   };
 
   return (
     <>
-      <ToastContainer autoClose={3000} closeOnClick hideProgressBar theme="colored" position="top-center" />
+      <ToastContainer
+        autoClose={3000}
+        closeOnClick
+        hideProgressBar
+        theme="colored"
+        position="top-center"
+      />
 
       <div className="align-center mx-auto border-2">
         <h1 className="text-center"> Add Employee</h1>
@@ -72,7 +94,7 @@ const AddEmp = ({ onSubmit }) => {
             id="floatingName"
             placeholder="name@example.com"
           />
-          <label for="floatingName">Full Name</label>
+          <label htmlFor="floatingName">Full Name</label>
         </div>
         <div className="form-floating mb-3">
           <input
@@ -83,7 +105,7 @@ const AddEmp = ({ onSubmit }) => {
             id="floatingInput"
             placeholder="name@example.com"
           />
-          <label for="floatingInput">User Name</label>
+          <label htmlFor="floatingInput">User Name</label>
         </div>
         <div className="form-floating mb-3">
           <input
@@ -94,17 +116,17 @@ const AddEmp = ({ onSubmit }) => {
             id="floatingPassword"
             placeholder="Password"
           />
-          <label for="floatingPassword">Password</label>
+          <label htmlFor="floatingPassword">Password</label>
         </div>
         <div className="form-floating mb-3">
           <select
             value={designation}
-            onChange={(e) => setDesignation(e.target.value)}
+            onChange={handleDesignationChange}
             className="form-select"
             id="floatingSelect"
             aria-label="Floating label select example"
           >
-            <option selected>Open this select menu</option>
+            <option value="">Select Designation</option>
             <option value="4">Developer</option>
             <option value="4">Tester</option>
             <option value="3">Manager</option>
@@ -112,7 +134,7 @@ const AddEmp = ({ onSubmit }) => {
             <option value="2">Senior Manager</option>
             <option value="2">HR</option>
           </select>
-          <label for="floatingSelect">Desigination of Employee</label>
+          <label htmlFor="floatingSelect">Designation of Employee</label>
         </div>
         <div className="form-floating mb-3">
           <input
@@ -122,7 +144,7 @@ const AddEmp = ({ onSubmit }) => {
             className="form-control"
             id="floatingDate"
           />
-          <label for="floatingDate">Joining date</label>
+          <label htmlFor="floatingDate">Joining date</label>
         </div>
         <Button variant="primary" type="submit" onClick={handleSubmit}>
           ADD EMPLOYEE

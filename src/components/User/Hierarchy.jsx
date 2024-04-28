@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from "react";
 import { DownOutlined } from "@ant-design/icons";
 import { Tree } from "antd";
@@ -19,39 +17,41 @@ const Hierarchy = () => {
 
   const transformUserDataToTreeData = (userData) => {
     const designationMap = new Map();
-    const designationTitles = {
-      "1": "CEO",
-      "2": "HR",
-      "2": "SM",
-      "3": "RM",
-      "3": "M",
-      "4": "D",
-      "4": "T",
-    };
-  
+    const levelMap = new Map();
+
     userData.forEach((user) => {
-      const { designation, fullName } = user;
-      if (!designationMap.has(designation)) {
-        designationMap.set(designation, []);
+      const { designation, designationName, fullName } = user;
+
+      if (!levelMap.has(designation)) {
+        levelMap.set(designation, {
+          title: `Level ${designation}`,
+          key: `level-${designation}`,
+          children: [],
+        });
       }
-      designationMap.get(designation).push({ title: fullName, key: user.id });
+
+      if (!designationMap.has(designationName)) {
+        designationMap.set(designationName, {
+          title: designationName,
+          key: designationName,
+          children: [],
+        });
+      }
+
+      designationMap.get(designationName).children.push({
+        title: fullName,
+        key: user.id,
+      });
+
+      levelMap.get(designation).children.push(designationMap.get(designationName));
     });
 
-    const treeData = [];
-    Array.from(designationMap.keys()).forEach((designation) => {
-      const designationNode = {
-        title: designationTitles[designation],
-        key: designation,
-        children: designationMap.get(designation),
-      };
-      treeData.push(designationNode);
-    });
-  
-    return treeData;
+    // return Array.from(levelMap.values());
+
+    return Array.from(levelMap.values()).sort(
+      (a, b) => a.key.split("-")[1] - b.key.split("-")[1]
+    );
   };
-  
-  
-   
 
   const onSelect = (selectedKeys, info) => {
     console.log("selected", selectedKeys, info);

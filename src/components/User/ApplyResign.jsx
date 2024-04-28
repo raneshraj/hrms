@@ -23,7 +23,6 @@ const ApplyResign = () => {
       return;
     }
     if (loggedInUser) {
-      // Calculate the number of approvals required based on the user's designation level
       const approvalsRequired = calculateApprovalsRequired(loggedInUser.designation);
 
       const resignationData = {
@@ -53,18 +52,15 @@ const ApplyResign = () => {
     }
   };
 
-  // Function to calculate the number of approvals required based on the user's designation level
   const calculateApprovalsRequired = (userDesignation) => {
-    // Implement your logic here to determine the number of approvals required based on the user's designation level
-    // For example, you could have a mapping of designation levels to required approvals
+   
     const designationApprovalsMapping = {
       1: 2,
       2: 3,
       3: 4,
-      // Add more mappings as needed
     };
 
-    return designationApprovalsMapping[userDesignation] || 2; // Default to 2 if no mapping is found
+    return designationApprovalsMapping[userDesignation] || 2; 
   };
 
 

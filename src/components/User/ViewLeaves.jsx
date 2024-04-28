@@ -267,7 +267,6 @@ const ViewLeaves = () => {
           .then((res) => res.json())
           .then((updatedLeave) => {
             if (updatedLeave) {
-              // Update the leaves state to reflect the new status
               setLeaves(leaves.map((item) =>
                 item.id === leave.id ? { ...item, status: newStatus } : item
               ));

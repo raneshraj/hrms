@@ -14,14 +14,14 @@ const EditEmp = () => {
     if (!loggedInUser || loggedInUser.username !== "admin") {
       toast.error("You are not authorized to access this page.", {
         position: "top-center",
-        autoClose: 3000, // Toast will close after 3 seconds
+        autoClose: 3000, 
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
       });
-      setTimeout(() => navigate("/hierarchy"), 1000); // Redirect after 3 seconds
+      setTimeout(() => navigate("/hierarchy"), 1000); 
     } else  {
    
 
