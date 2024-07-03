@@ -1,5 +1,6 @@
 {
   "name": "hrms",
+  "homepage":"https://github.com/raneshraj/hrms_backend",
   "private": true,
   "version": "0.0.0",
   "type": "module",
